@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-16T20:56:46.906023" rpa="false" schemaversion="5">
+<suite id="s1" name="Exam160524" source="C:\Users\slowg\OneDrive\เอกสาร\exam160524">
+<suite id="s1-s1" name="Exam" source="C:\Users\slowg\OneDrive\เอกสาร\exam160524\exam">
+<suite id="s1-s1-s1" name="Robot-Fw" source="C:\Users\slowg\OneDrive\เอกสาร\exam160524\exam\robot-fw">
+<suite id="s1-s1-s1-s1" name="Exam2" source="C:\Users\slowg\OneDrive\เอกสาร\exam160524\exam\robot-fw\exam2.robot">
+<test id="s1-s1-s1-s1-t1" name="Login success" line="38">
+<kw name="Open web and login">
+<kw name="Open Browser" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:47.314165" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-16T20:56:47.313655" elapsed="9.703918"/>
+</kw>
+<kw name="Maximize Browser Window" owner="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-16T20:56:57.018625" elapsed="0.056412"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>id=username</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:56:57.075037" elapsed="0.047640"/>
+</kw>
+<kw name="Input Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:57.123735" level="INFO">Typing text 'tomsmith' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:56:57.122677" elapsed="0.318846"/>
+</kw>
+<kw name="Input Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:57.445095" level="INFO">Typing text 'SuperSecretPassword!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:56:57.443041" elapsed="0.288268"/>
+</kw>
+<kw name="Click Element" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:57.733836" level="INFO">Clicking element 'xpath=//*[@id="login"]/button'.</msg>
+<arg>xpath=//*[@id="login"]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:56:57.731309" elapsed="0.793953"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>xpath=//i[contains(text(),' Logout')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:56:58.526264" elapsed="0.044691"/>
+</kw>
+<arg>tomsmith</arg>
+<arg>SuperSecretPassword!</arg>
+<status status="PASS" start="2024-05-16T20:56:47.311633" elapsed="11.260326"/>
+</kw>
+<kw name="Logout">
+<kw name="Get Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:58.607704" level="INFO">${login_text} = You logged into a secure area!
+×</msg>
+<var>${login_text}</var>
+<arg>id=flash</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:56:58.575316" elapsed="0.033627"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${login_text}</arg>
+<arg>You logged into a secure area!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-16T20:56:58.609451" elapsed="0.001019"/>
+</kw>
+<kw name="Click Element" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:58.613039" level="INFO">Clicking element 'xpath=//i[contains(text(),' Logout')]'.</msg>
+<arg>xpath=//i[contains(text(),' Logout')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:56:58.610470" elapsed="0.748352"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>xpath=//*[@id="login"]/button</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:56:59.358822" elapsed="0.038039"/>
+</kw>
+<kw name="Get Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:56:59.424797" level="INFO">${logout_text} = You logged out of the secure area!
+×</msg>
+<var>${logout_text}</var>
+<arg>id=flash</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:56:59.396861" elapsed="0.027936"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${logout_text}</arg>
+<arg>You logged out of the secure area!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-16T20:56:59.425848" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-16T20:56:58.572971" elapsed="0.852877"/>
+</kw>
+<kw name="Close All Browsers" owner="Selenium2Library" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-16T20:56:59.426971" elapsed="6.333316"/>
+</kw>
+<status status="PASS" start="2024-05-16T20:56:47.310630" elapsed="18.450685"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Login failed - Password incorrect" line="42">
+<kw name="Open web and login Negative">
+<kw name="Open Browser" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:05.765739" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-16T20:57:05.765404" elapsed="6.525418"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>id=username</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:57:12.290822" elapsed="0.021083"/>
+</kw>
+<kw name="Input Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:12.312944" level="INFO">Typing text 'tomsmith' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:57:12.312944" elapsed="0.159432"/>
+</kw>
+<kw name="Input Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:12.473403" level="INFO">Typing text 'Password!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:57:12.473403" elapsed="0.173388"/>
+</kw>
+<kw name="Click Element" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:12.647797" level="INFO">Clicking element 'xpath=//*[@id="login"]/button'.</msg>
+<arg>xpath=//*[@id="login"]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:57:12.646791" elapsed="0.756243"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>xpath=//div[contains(text(),'${err_msg}')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:57:13.404039" elapsed="0.037382"/>
+</kw>
+<arg>tomsmith</arg>
+<arg>Password!</arg>
+<arg>Your password is invalid!</arg>
+<status status="PASS" start="2024-05-16T20:57:05.764891" elapsed="7.676530"/>
+</kw>
+<kw name="Close All Browsers" owner="Selenium2Library" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-16T20:57:13.443009" elapsed="6.311004"/>
+</kw>
+<status status="PASS" start="2024-05-16T20:57:05.762314" elapsed="13.992843"/>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Login failed - Username not found" line="45">
+<kw name="Open web and login Negative">
+<kw name="Open Browser" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:19.760172" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-16T20:57:19.760172" elapsed="6.859844"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>id=username</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:57:26.620016" elapsed="0.018857"/>
+</kw>
+<kw name="Input Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:26.640937" level="INFO">Typing text 'tomholland' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:57:26.638873" elapsed="0.182266"/>
+</kw>
+<kw name="Input Text" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:26.824376" level="INFO">Typing text 'Password!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:57:26.822646" elapsed="0.251092"/>
+</kw>
+<kw name="Click Element" owner="Selenium2Library">
+<msg time="2024-05-16T20:57:27.076278" level="INFO">Clicking element 'xpath=//*[@id="login"]/button'.</msg>
+<arg>xpath=//*[@id="login"]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-16T20:57:27.073738" elapsed="0.823403"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="Selenium2Library">
+<arg>xpath=//div[contains(text(),'${err_msg}')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-16T20:57:27.897652" elapsed="0.037541"/>
+</kw>
+<arg>tomholland</arg>
+<arg>Password!</arg>
+<arg>Your username is invalid!</arg>
+<status status="PASS" start="2024-05-16T20:57:19.759171" elapsed="8.176022"/>
+</kw>
+<kw name="Close All Browsers" owner="Selenium2Library" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-16T20:57:27.936205" elapsed="6.389624"/>
+</kw>
+<status status="PASS" start="2024-05-16T20:57:19.757614" elapsed="14.569271"/>
+</test>
+<status status="PASS" start="2024-05-16T20:56:46.951033" elapsed="47.378586"/>
+</suite>
+<status status="PASS" start="2024-05-16T20:56:46.948992" elapsed="47.385737"/>
+</suite>
+<status status="PASS" start="2024-05-16T20:56:46.946406" elapsed="47.392470"/>
+</suite>
+<status status="PASS" start="2024-05-16T20:56:46.913134" elapsed="47.428359"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Exam160524">Exam160524</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1" name="Exam">Exam160524.Exam</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1-s1" name="Robot-Fw">Exam160524.Exam.Robot-Fw</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1-s1-s1" name="Exam2">Exam160524.Exam.Robot-Fw.Exam2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
