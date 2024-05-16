@@ -2,18 +2,28 @@ pipeline {
  agent any
  stages {
     stage('Checkout Code From Git') {
-        
+            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/suttawas10/exam20240516']])
         }
  }
 
  stages {
     stage('Run Test Automate') {
+            sh 'robot ./exam/robot-fw .'
         }
  }
 
  stages {
     stage('Send Result To Jenkins') {
+             post {
+                always {
+                    step([
+                            outputPath          : 'test_results',
+                            outputFileName      : "output.xml",
+                            reportFileName      : 'report.html',
+                            logFileName         : 'log.html',
+                    ])
+                }
+            }
         }
- }
-
+    }
 }
